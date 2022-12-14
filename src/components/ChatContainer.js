@@ -19,7 +19,7 @@ const ChatContainer = () => {
     useEffect(() => {
         getMatches();
 
-        const newSocket = io.connect("http://localhost:8000");
+        const newSocket = io.connect(`${process.env.SOCKET_URL}`);
 
         newSocket.emit('join', {userId: cookies.UserId});
 
