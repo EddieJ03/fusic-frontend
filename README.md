@@ -1,6 +1,6 @@
-# Possible Changes
+# Fusic Frontend
 
-Add "proxy": "http://backend:8000" back to package.json in client after "private"
+The frontend of the application Fusic
 
 ## Available Scripts
 
