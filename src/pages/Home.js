@@ -104,13 +104,21 @@ const Home = ({ setExpiresIn, setRefreshToken, setAccessToken }) => {
           </div> 
         :   <div className="overlay">
                 <div className="home">
-                    <h1 className="primary-title">Fusic</h1>
-                    <p style={{fontSize: '45px', width: '400px', textAlign: 'center'}}>Find and chat with people who have similar musical tastes!</p>
+                    <h1 className="primary-title">
+                        Fusic
+                    </h1>
+                    <p style={{fontSize: '45px', width: '400px', textAlign: 'center'}}>
+                        Find and chat with people who have similar musical tastes!
+                    </p>
                     <button className="primary-button" onClick={handleClick}>
                         Login
                     </button>
-                    <p style={{width: '200px'}}>HEADS UP: I am currently trying to get my app's quota extension approved by Spotify so anyone can use it. Meanwhile, check out my GitHub repo: </p>
-                    <a href="https://github.com/EddieJ03/fusic">Fusic GitHub</a>
+                    <p style={{width: '200px'}}>
+                        HEADS UP: I am currently trying to get my app's quota extension approved by Spotify so anyone can use it. Meanwhile, check out my GitHub repo: 
+                    </p>
+                    <a href="https://github.com/EddieJ03/fusic" style={{color: "blue"}}>
+                        Fusic GitHub
+                    </a>
                 </div>
             </div>
     )

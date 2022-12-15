@@ -13,6 +13,7 @@ html, body {
 .primary-title {
     font-size: 90px;
     color: rgb(255, 255, 255);
+    margin-bottom: 0px;
 }
 
 .primary-button {
@@ -88,7 +89,11 @@ nav .logo-container .logo {
     width: 100vw;
     height: 100vh;
     position: fixed;
-    background-color: #77b5d9;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.65) 100%
+    ), url('assets/album-background.jpg');
+    background-attachment: fixed;
 }
 
 .home {
@@ -97,7 +102,7 @@ nav .logo-container .logo {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #d7eaf3;
+    color: white;
 }
 
 /*-------- Auth Modal --------*/
