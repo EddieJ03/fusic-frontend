@@ -19,7 +19,7 @@ const ChatContainer = () => {
   useEffect(() => {
     getMatches();
 
-    const newSocket = io.connect(`${process.env.REACT_APP_BACKEND_BASE}`);
+    const newSocket = io.connect(`${process.env.REACT_APP_BACKEND_BASE}`, { withCredentials: true });
 
     newSocket.emit("join", { userId: cookies.UserId });
 
