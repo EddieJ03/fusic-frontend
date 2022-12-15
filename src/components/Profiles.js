@@ -36,7 +36,7 @@ function Profiles() {
     const getMatchGenre = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('/same-genre-users', {
+            const response = await axios.get(`${process.env.BACKEND_BASE}/same-genre-users`, {
                 headers:{
                     Cookie: `AuthToken=${cookies.AuthToken}`
                 }, 
@@ -66,7 +66,7 @@ function Profiles() {
 
         try {
             if(direction === "left") {
-                await axios.put('/nomatch', {
+                await axios.put(`${process.env.BACKEND_BASE}/nomatch`, {
                     userId: user.user_id,
                     matchedUserId
                 });
@@ -76,7 +76,7 @@ function Profiles() {
                 return;
             }
 
-            const response = await axios.put('/addmatch', {
+            const response = await axios.put(`${process.env.BACKEND_BASE}/addmatch`, {
                 userId: cookies.UserId,
                 matchedUserId,
             });

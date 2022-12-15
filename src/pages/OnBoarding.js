@@ -7,8 +7,6 @@ import { useCookies } from 'react-cookie';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-const BACKEND = process.env.REACT_APP_BACKEND
-
 const OnBoarding = () => {
     const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [genres, setGenres] = useState([]);
@@ -48,7 +46,7 @@ const OnBoarding = () => {
 
     const getUser = async () => {
         try {
-            const response = await axios.get(`${BACKEND}/user`, {
+            const response = await axios.get(`${process.env.BACKEND_BASE}/user`, {
                 params: {userId: cookies.UserId}
             })
 
@@ -73,7 +71,7 @@ const OnBoarding = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`${BACKEND}/user`, { formData, genres });
+            const response = await axios.put(`${process.env.BACKEND_BASE}/user`, { formData, genres });
             const success = response.status === 200
             if (success) {
                 setUser(response.data.value);

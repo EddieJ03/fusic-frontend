@@ -19,7 +19,7 @@ const App = () => {
         if (!refreshToken || !expiresIn) return;
         const interval = setInterval(() => {
           axios
-            .post(`/refresh`, {
+            .post(`${process.env.BACKEND_BASE}/refresh`, {
               refreshToken,
             })
             .then(res => {

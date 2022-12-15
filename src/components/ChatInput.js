@@ -23,7 +23,7 @@ const ChatInput = ({ clickedUser, setDescendingOrderMessages }) => {
         try {
             socket.emit("newMessage", {message: message, userId: userId, clickedUserId: clickedUserId});
             setTextArea("");
-            await axios.post('/message', { message })
+            await axios.post(`${process.env.BACKEND_BASE}/message`, { message })
         } catch (error) {
             console.log(error)
         }

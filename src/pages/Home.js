@@ -30,7 +30,7 @@ const Home = ({ setExpiresIn, setRefreshToken, setAccessToken }) => {
 
             setLoading(true);
 
-            let res = await axios.post("/spotify", {
+            let res = await axios.post(`${process.env.BACKEND_BASE}/spotify`, {
                 code: code
             })
 
@@ -63,7 +63,7 @@ const Home = ({ setExpiresIn, setRefreshToken, setAccessToken }) => {
 
             let data = await spotifyApi.getMe();
             
-            res = await axios.post("/authenticate", {
+            res = await axios.post(`${process.env.BACKEND_BASE}/authenticate`, {
                 email: data.body.email,
                 username: data.body.display_name,
                 id: data.body.id,

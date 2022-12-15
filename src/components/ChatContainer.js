@@ -19,7 +19,7 @@ const ChatContainer = () => {
     useEffect(() => {
         getMatches();
 
-        const newSocket = io.connect(`${process.env.SOCKET_URL}`);
+        const newSocket = io.connect(`${process.env.BACKEND_BASE}`);
 
         newSocket.emit('join', {userId: cookies.UserId});
 
@@ -79,7 +79,7 @@ const ChatContainer = () => {
         setLoading(true);
 
         try {
-            const response = await axios.get("/matched-users", {
+            const response = await axios.get(`${process.env.BACKEND_BASE}/matched-users`, {
                 params: { userId: cookies.UserId, userIds: JSON.stringify(user.matches) },
             });
 
@@ -133,7 +133,7 @@ const ChatContainer = () => {
                                 })
 
                                 if(user.new_messages.includes(match.user_id)) {
-                                    axios.put("/update-new-message", {
+                                    axios.put(`${process.env.BACKEND_BASE}/update-new-message`, {
                                         data: { matchId: match.user_id, userId: cookies.UserId },
                                     });
                                 }

@@ -63,7 +63,7 @@ const Dashboard = () => {
 
     const getUser = async () => {
         try {
-            const response = await axios.get(`/user`, {
+            const response = await axios.get(`${process.env.BACKEND_BASE}/user`, {
                 params: {userId: cookies.UserId}
             })
 
@@ -79,7 +79,7 @@ const Dashboard = () => {
     const deleteProfile = async () => {
         setDeleting(true);
         try {
-            await axios.delete(`/delete`, {
+            await axios.delete(`${process.env.BACKEND_BASE}/delete`, {
                 data: {
                     userId: cookies.UserId,
                 }
