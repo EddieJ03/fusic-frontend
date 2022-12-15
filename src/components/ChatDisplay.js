@@ -29,9 +29,9 @@ const ChatDisplay = ({
   }, [clickedUser]);
 
   useEffect(() => {
-    if (descendingOrderMessages && descendingOrderMessages.length > 15) {
-      chatContainer.current.scrollTop = chatContainer.current.scrollHeight;
-    }
+    // if (descendingOrderMessages && descendingOrderMessages.length > 15) {
+    //   chatContainer.current.scrollTop = chatContainer.current.scrollHeight;
+    // }
   }, [descendingOrderMessages]);
 
   useEffect(() => {
@@ -78,7 +78,8 @@ const ChatDisplay = ({
       const response = await axios.get(
         `${process.env.REACT_APP_BACKEND_BASE}/messages`,
         {
-          params: { withCredentials: true, userId: userId, correspondingUserId: clickedUserId },
+          withCredentials: true, 
+          params: { userId: userId, correspondingUserId: clickedUserId },
         }
       );
       setUsersMessages(response.data);
@@ -92,7 +93,8 @@ const ChatDisplay = ({
       const response = await axios.get(
         `${process.env.REACT_APP_BACKEND_BASE}/messages`,
         {
-          params: {  withCredentials: true, userId: clickedUserId, correspondingUserId: userId },
+          withCredentials: true, 
+          params: { userId: clickedUserId, correspondingUserId: userId },
         }
       );
       setClickedUsersMessages(response.data);
